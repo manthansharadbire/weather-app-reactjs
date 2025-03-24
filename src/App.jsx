@@ -2,8 +2,21 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
+const API_KEY = "d91f5c11b2249b0b7ebd03046c64d6ee"
+const [city, setCity] = useState("New Delhi");
+const [weather, setWeather] = useState({
+  temp:null,
+  feelsLike:null,
+  windSpeed:null,
+  pollutionIndex:null,
+  humidity:null,
+});
 
-const [city, setCity] = useState("")
+const getWeatherData = ()=>{};
+
+useEffect(()=>{
+  getWeatherData();
+},[city])
 
   return (
   <div>
@@ -45,13 +58,13 @@ const [city, setCity] = useState("")
   </div>
 <div className='flex-col'>
   <span className='block border border-gray-300 py-4 text-center m-6 text-xl font-semibold  rounded-3xl
- shadow-lg'>Feels like : </span>
+ shadow-lg'>Feels like : {weather.feelsLike} 48°C</span>
   <span className='block  border-gray-300 py-4 text-center border m-6 text-xl font-semibold  rounded-3xl
- shadow-lg'>Wind Speed : </span>
+ shadow-lg'>Wind Speed : {weather.windSpeed} 12km/hour</span>
   <span className='block  border-gray-300 py-4 text-center border m-6 text-xl font-semibold  rounded-3xl
- shadow-lg'>Pollution : </span>
+ shadow-lg'>Pollution Index : {weather.pollutionIndex} 80 AQI</span>
   <span className='block  border-gray-300 py-4 text-center border m-6 text-xl font-semibold rounded-3xl
- shadow-lg'>Humidity : </span>
+ shadow-lg'>Humidity : {weather.humidity} 13%</span>
 </div>
   </div>
   );

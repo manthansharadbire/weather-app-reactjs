@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function App() {
   const API_KEY = "d91f5c11b2249b0b7ebd03046c64d6ee";
-  const [city, setCity] = useState("New Delhi");
+  const [city, setCity] = useState("");
   const [weather, setWeather] = useState({
     temp: null,
     feelsLike: null,
@@ -36,6 +36,7 @@ function App() {
     getWeatherData();
   }, [city]);
 
+
   return (
     <div>
       <div className='flex justify-center mt-8'>
@@ -51,27 +52,28 @@ function App() {
 
       <div className='text-center mt-9'>
         <h1 className='text-5xl'>{city}</h1>
-        <h2 className='text-9xl mt-2'>{weather.temp ? `${weather.temp}°C` : 'Loading...'}</h2>
+        <h2 className='text-9xl mt-2'> {weather.temp}°C</h2>
       </div>
 
       <div className='flex-col'>
         <span className='block border border-gray-300 py-4 text-center m-6 text-xl font-semibold rounded-3xl shadow-lg'>
-          Feels like: {weather.feelsLike ? `${weather.feelsLike}°C` : 'Loading...'}
+          Feels like: {weather.feelsLike}°C 
         </span>
         <span className='block border-gray-300 py-4 text-center border m-6 text-xl font-semibold rounded-3xl shadow-lg'>
-          Wind Speed: {weather.windSpeed ? `${weather.windSpeed}km/h` : 'Loading...'}
+          Wind Speed: {weather.windSpeed}km/h
         </span>
         <span className='block border-gray-300 py-4 text-center border m-6 text-xl font-semibold rounded-3xl shadow-lg'>
-          Minimum Temperature: {weather.minTemp ? `${weather.minTemp}°C` : 'Loading...'}
+          Minimum Temperature: {weather.minTemp}°C
         </span>
         <span className='block border-gray-300 py-4 text-center border m-6 text-xl font-semibold rounded-3xl shadow-lg'>
-          Maximum Temperature: {weather.maxTemp ? `${weather.maxTemp}°C` : 'Loading...'}
+          Maximum Temperature: {weather.maxTemp}°C
         </span>
         <span className='block border-gray-300 py-4 text-center border m-6 text-xl font-semibold rounded-3xl shadow-lg'>
-          Humidity: {weather.humidity ? `${weather.humidity}%` : 'Loading...'}
+          Humidity: {weather.humidity}%
         </span>
       </div>
     </div>
+
   );
 }
 
